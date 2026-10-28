@@ -1,0 +1,17 @@
+{
+  "rules": {
+    "classrooms": {
+      ".read": true,
+      ".write": true,
+      "$classroom_id": {
+        ".validate": "newData.hasChildren(['occupancy', 'lightStatus'])",
+        "occupancy": {
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100"
+        },
+        "lightStatus": {
+          ".validate": "newData.isString() && (newData.val() == 'ON' || newData.val() == 'OFF')"
+        }
+      }
+    }
+  }
+}
